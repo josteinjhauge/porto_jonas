@@ -1,4 +1,4 @@
-import { projects } from '../data';
+import { projects } from '../data/projectsData';
 import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Typography } from '@mui/material';
 import * as React from 'react';
 
