@@ -1,17 +1,16 @@
 import { projects } from '../data/projectsData';
-import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Typography } from '@mui/material';
+import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Divider, Paper, Stack, Typography } from '@mui/material';
 import * as React from 'react';
 
-type ProjectsProps = {}
-
-export const Projects = ({ }: ProjectsProps) => (
+export const Projects = () => (
     <>
         <section id='projects'>
             <div>
                 <div>
-                    <h1 className='header'>
+                    <Typography variant='h3' align='left'>
                         Mine prosjekter
-                    </h1>
+                    </Typography>
+                    <Divider variant='middle'/>
                     <p>
                         Minim eu culpa esse nostrud eiusmod nostrud fugiat.
                         Esse incididunt eu quis nulla sint ut.
@@ -20,32 +19,15 @@ export const Projects = ({ }: ProjectsProps) => (
                     </p>
                 </div>
                 <div className='flex'>
-                    {projects.map((project) => (
-                        <Card key={project.image}>
-                            <CardActionArea>
-                                <CardMedia
-                                    component="image"
-                                    height="140"
-                                    image={project.image} />
-                                <CardContent>
-                                    <Typography gutterBottom variant="h5" component="div">
-                                        {project.title}
-                                    </Typography>
-                                    <Typography variant="body1" color="text.secondary">
-                                        {project.subtitle}
-                                    </Typography>
-                                    <Typography variant="body2" color="text.secondary">
-                                        {project.description}
-                                    </Typography>
-                                </CardContent>
-                            </CardActionArea>
-                            <CardActions>
-                                <Button size="small" color="primary">
-                                    Les mer
-                                </Button>
-                            </CardActions>
-                        </Card>
-                    ))}
+                    <Stack direction='row' spacing={{ xs: 1, sm: 2, md: 4}}>
+                        {projects.map((project) => (
+                            <Paper key={project.image} variant='outlined' square={false}>
+                                <Typography variant="h5" color="initial" align='left'>{project.title}</Typography>
+                                <img src={project.image} alt={project.title} loading='lazy' />
+                            </Paper>
+                        ))}
+                    </Stack>
+                    
                 </div>
             </div>
         </section>
